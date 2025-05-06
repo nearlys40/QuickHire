@@ -6,12 +6,20 @@
     <main class="flex-1 p-8">
       <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold">Available Jobs</h1>
-        <router-link
-          to="/jobs/new"
-          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
-          + Post Job
-        </router-link>
+        <div class="flex gap-4">
+          <router-link
+            to="/jobs/new"
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            + Post Job
+          </router-link>
+          <router-link
+            to="/notifications"
+            class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300"
+          >
+            🔔 Notifications
+          </router-link>
+        </div>
       </div>
 
       <div v-if="loading" class="text-gray-500">Loading jobs...</div>
