@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# System files
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Python backup
+*.bak
