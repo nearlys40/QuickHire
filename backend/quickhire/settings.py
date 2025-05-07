@@ -60,7 +60,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'quickhire.wsgi.application'
-ASGI_APPLICATION = 'quickhire.asgi.application'
+ASGI_APPLICATION = "quickhire.asgi.application"
 
 # DATABASES = {
 #     'default': dj_database_url.config(default=config('DATABASE_URL'))
@@ -110,7 +110,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis", 6379)],
+            "hosts": [("127.0.0.1", 6379)],
         },
     },
 }

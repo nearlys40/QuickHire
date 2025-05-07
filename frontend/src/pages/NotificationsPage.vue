@@ -83,9 +83,7 @@ const setupWebSocket = () => {
     return;
   }
 
-  const wsProtocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-  const wsHost = window.location.host;
-  const wsUrl = `${wsProtocol}//${wsHost}/ws/notifications/?token=${token}`;
+  const wsUrl = `ws://localhost:8000/ws/notifications/?token=${token}`;
 
   socket = new WebSocket(wsUrl);
 
