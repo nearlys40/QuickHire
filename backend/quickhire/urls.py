@@ -2,14 +2,6 @@ from django.contrib import admin
 from django.urls import path, include
 from quickhire import schema
 
-from django.http import JsonResponse
-
-def asgi_debug_view(request):
-    return JsonResponse({
-        "scope_type": getattr(request, 'scope', {}).get('type', 'UNKNOWN'),
-        "asgi_application": getattr(request, 'asgi_version', 'Not ASGI'),
-    })
-
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -26,6 +18,4 @@ urlpatterns = [
     path('api/jobs/', include('apps.jobs.urls')),
     path('api/payments/', include('apps.payments.urls')),
     path('api/notifications/', include('apps.notifications.urls')),
-
-    path("asgi-test/", asgi_debug_view),
 ]
