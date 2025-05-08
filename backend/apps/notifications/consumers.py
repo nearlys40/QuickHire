@@ -19,7 +19,7 @@ class NotificationConsumer(AsyncWebsocketConsumer):
             UntypedToken(token)
             payload = jwt_decode(token, settings.SECRET_KEY, algorithms=["HS256"])
             self.scope["user"] = await self.get_user(payload["user_id"])
-        except Exception:
+        except Exception as e:
             print("❌ Token validation failed:", e)
             await self.close()
             return

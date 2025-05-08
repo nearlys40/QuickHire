@@ -32,18 +32,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { onMounted } from "vue";
 import { apiClient } from "@/utils/constants";
+import { useNotificationsSocket } from "@/composables/useNotificationsSocket";
+import type { Notification } from "@/types/Notification";
 
-interface Notification {
-  id: number;
-  message: string;
-  read: boolean;
-  timestamp: string;
-}
-
-const notifications = ref<Notification[]>([]);
-let socket: WebSocket | null = null;
+const { notifications } = useNotificationsSocket();
 
 const fetchNotifications = async () => {
   try {
@@ -76,51 +70,8 @@ const markOneAsRead = async (notification: Notification) => {
   }
 };
 
-const setupWebSocket = () => {
-  const token = localStorage.getItem("access_token");
-  if (!token) {
-    console.warn("No access token found. WebSocket not started.");
-    return;
-  }
-
-  const wsUrl = `ws://localhost:8000/ws/notifications/?token=${token}`;
-
-  socket = new WebSocket(wsUrl);
-
-  socket.onopen = () => {
-    console.log("[WebSocket] Connected");
-  };
-
-  socket.onmessage = (event) => {
-    try {
-      const data = JSON.parse(event.data);
-      if (data && data.message) {
-        notifications.value.unshift(data);
-      }
-    } catch (err) {
-      console.error("[WebSocket] Invalid data:", err);
-    }
-  };
-
-  socket.onerror = (err) => {
-    console.error("[WebSocket] Error:", err);
-  };
-
-  socket.onclose = (event) => {
-    console.warn(
-      `[WebSocket] Closed (code: ${event.code}). Reconnecting in 3s...`
-    );
-    setTimeout(setupWebSocket, 3000);
-  };
-};
-
 onMounted(() => {
   fetchNotifications();
-  setupWebSocket();
-});
-
-onUnmounted(() => {
-  if (socket) socket.close();
 });
 
 function formatDate(iso: string): string {
