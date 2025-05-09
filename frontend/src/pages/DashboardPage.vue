@@ -23,8 +23,16 @@
       </div>
 
       <div v-if="loading" class="text-gray-500">Loading jobs...</div>
-      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <JobCard v-for="job in jobs" :key="job.id" :job="job" />
+      <div v-else>
+        <div v-if="jobs.length === 0" class="text-gray-500 italic">
+          No jobs available
+        </div>
+        <div
+          v-else
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <JobCard v-for="job in jobs" :key="job.id" :job="job" />
+        </div>
       </div>
     </main>
   </div>
