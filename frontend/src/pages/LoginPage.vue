@@ -23,28 +23,12 @@
       >
         Login
       </button>
+      <p v-if="error" class="text-red-600 text-sm mt-2">{{ error }}</p>
     </form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, inject } from "vue";
-import { useRouter } from "vue-router";
-import type { AuthService } from "@/services/auth.service";
-
-const auth = inject<AuthService>("auth");
-const router = useRouter();
-
-const username = ref("");
-const password = ref("");
-
-const handleLogin = async () => {
-  if (!auth) return;
-  try {
-    await auth.login(username.value, password.value);
-    router.push("/dashboard");
-  } catch (e) {
-    alert("Login failed");
-  }
-};
+import { useLogin } from "@/composables/useLogin";
+const { username, password, error, handleLogin } = useLogin();
 </script>
