@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { useJobs } from "@/composables/useJobs";
 import Sidebar from "@/components/Sidebar.vue";
 import JobCard from "@/components/JobCard.vue";
