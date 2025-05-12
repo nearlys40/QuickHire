@@ -12,6 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Job } from "@/types/job";
-const props = defineProps<{ job: Job }>();
+import type { Job } from "@/types/Job";
+defineProps<{ job: Job }>();
 </script>
