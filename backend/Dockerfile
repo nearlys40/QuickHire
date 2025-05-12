@@ -7,7 +7,9 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY requirements.prod.txt .
-RUN pip install --upgrade pip && pip install -r requirements.prod.txt
+RUN pip install --no-cache-dir -r requirements.prod.txt
+
+RUN which daphne
 
 COPY . .
 
