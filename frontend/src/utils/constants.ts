@@ -1,6 +1,5 @@
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-// ✅ เพิ่ม axios instance พร้อม JWT header อัตโนมัติ
 import axios from "axios";
 
 export const apiClient = axios.create({
@@ -8,7 +7,6 @@ export const apiClient = axios.create({
   withCredentials: true,
 });
 
-// 🔄 เพิ่ม refresh token interceptor อัตโนมัติ
 apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem("access_token");
   if (token) {
