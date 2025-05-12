@@ -1,4 +1,4 @@
-export const API_BASE_URL = "https://quickhire-production.up.railway.app/api";
+export const API_BASE_URL = "http://localhost:8000/api";
 
 // ✅ เพิ่ม axios instance พร้อม JWT header อัตโนมัติ
 import axios from "axios";
