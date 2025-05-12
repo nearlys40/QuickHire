@@ -1,19 +1,19 @@
-# 1. ใช้ base image
+# Use official Python image
 FROM python:3.12-slim
 
-# 2. Set working directory
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set work directory
 WORKDIR /app
 
-# 3. Copy requirements และติดตั้ง package
-COPY backend/requirements.txt .
+# Install dependencies
+COPY requirements.txt /app/
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy project files
+COPY . /app/
 
-# 4. Copy โค้ดทั้งหมดเข้ามา
-COPY backend/ .
-
-# 5. Expose port
-EXPOSE 8000
-
-# 6. Run ด้วย daphne สำหรับ ASGI
+# Start server with Daphne (ASGI server)
 CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "quickhire.asgi:application"]
