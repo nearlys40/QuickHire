@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import axios from "axios";
-import type { Job } from "@/types/job";
+import type { Job } from "@/types/Job";
 import { API_BASE_URL } from "@/utils/constants";
 
 export function useJobs() {
