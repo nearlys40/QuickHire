@@ -1,4 +1,4 @@
-export const API_BASE_URL = "http://localhost:8000/api";
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // ✅ เพิ่ม axios instance พร้อม JWT header อัตโนมัติ
 import axios from "axios";
