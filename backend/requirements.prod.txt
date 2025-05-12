@@ -4,6 +4,7 @@ djangorestframework-simplejwt
 django-cors-headers
 python-decouple
 psycopg2-binary
+gunicorn
 channels
 channels-redis
 drf-spectacular
