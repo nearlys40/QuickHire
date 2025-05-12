@@ -9,8 +9,8 @@ WORKDIR /app
 COPY requirements.prod.txt .
 RUN pip install --no-cache-dir -r requirements.prod.txt
 
-RUN which daphne
-
 COPY . .
+
+ENV DJANGO_SETTINGS_MODULE=quickhire.settings.prod
 
 CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "quickhire.asgi:application"]
