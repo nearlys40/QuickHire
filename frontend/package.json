@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build && echo '✅ Build done at: %cd%/dist'",
+    "build": "vue-tsc -b && vite build",
     "test": "vitest",
     "preview": "vite preview"
   },
