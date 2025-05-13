@@ -62,10 +62,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'quickhire.wsgi.application'
 ASGI_APPLICATION = "quickhire.asgi.application"
 
-# DATABASES = {
-#     'default': dj_database_url.config(default=config('DATABASE_URL'))
-# }
-
 DATABASES = {
     "default": dj_database_url.config(default=config("DATABASE_URL"))
 }
