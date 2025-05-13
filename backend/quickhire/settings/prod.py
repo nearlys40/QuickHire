@@ -25,3 +25,7 @@ CHANNEL_LAYERS = {
 
 CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
+
+CORS_ALLOWED_ORIGINS = [
+    "https://quickhire-frontend-production.up.railway.app",
+]
