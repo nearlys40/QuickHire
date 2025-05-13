@@ -27,5 +27,7 @@ CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
 
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:8081", 
     "https://quickhire-frontend-production.up.railway.app",
 ]
