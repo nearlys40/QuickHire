@@ -23,6 +23,7 @@ app.use(Toast, {
   position: "top-right",
   timeout: 3000,
 });
+
 installPlugins(app);
 
 app.mount("#app");
