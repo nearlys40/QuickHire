@@ -5,12 +5,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [vue(), tailwindcss()],
-  root: ".",
-  base: "/",
-  build: {
-    outDir: "../public",
-    emptyOutDir: true,
-  },
+  base: "./",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
