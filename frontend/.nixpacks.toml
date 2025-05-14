@@ -1,0 +1,11 @@
+[phases.setup]
+nixpkgs = ["nodejs_18"]
+
+[phases.build]
+cmds = ["npm install", "npm run build"]
+
+[phases.start]
+cmds = []
+
+[static]
+  dist = "dist"
