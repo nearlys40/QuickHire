@@ -23,7 +23,7 @@ const routes = [
     meta: { requiresAuth: true },
   },
   {
-    path: "/jobs/new",
+    path: "/post-job",
     name: "PostJob",
     component: () => import("@/pages/PostJobPage.vue"),
     meta: { requiresAuth: true },
@@ -47,6 +47,11 @@ const routes = [
       localStorage.removeItem("refresh_token");
       next("/login");
     },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: DummyComponent,
   },
 ];
 

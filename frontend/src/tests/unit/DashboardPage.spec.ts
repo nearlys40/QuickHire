@@ -23,7 +23,7 @@ const router = createRouter({
   routes: [
     { path: "/dashboard", component: { template: "<div>Dashboard</div>" } },
     { path: "/logout", component: { template: "<div>Logout</div>" } },
-    { path: "/jobs/new", component: { template: "<div>New Job</div>" } },
+    { path: "/post-job", component: { template: "<div>New Job</div>" } },
     {
       path: "/notifications",
       component: { template: "<div>Notifications</div>" },
