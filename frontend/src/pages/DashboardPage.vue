@@ -8,7 +8,7 @@
         <h1 class="text-2xl font-bold">Available Jobs</h1>
         <div class="flex gap-4">
           <router-link
-            to="/jobs/new"
+            to="/post-job"
             class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
           >
             + Post Job
